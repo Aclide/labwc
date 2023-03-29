@@ -5,6 +5,7 @@
 #include <sys/wait.h>
 #include <wlr/types/wlr_data_control_v1.h>
 #include <wlr/types/wlr_export_dmabuf_v1.h>
+#include <wlr/types/wlr_fractional_scale_v1.h>
 #include <wlr/types/wlr_gamma_control_v1.h>
 #include <wlr/types/wlr_input_inhibitor.h>
 #include <wlr/types/wlr_presentation_time.h>
@@ -337,6 +338,7 @@ server_init(struct server *server)
 	wlr_gamma_control_manager_v1_create(server->wl_display);
 	wlr_viewporter_create(server->wl_display);
 	wlr_single_pixel_buffer_manager_v1_create(server->wl_display);
+	wlr_fractional_scale_manager_v1_create(server->wl_display, 1);
 
 	server->relative_pointer_manager = wlr_relative_pointer_manager_v1_create(
 		server->wl_display);
